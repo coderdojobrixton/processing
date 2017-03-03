@@ -5,16 +5,18 @@ Based on :
 
 http://www.cs.sfu.ca/CourseCentral/166/tjd/color.html
 
-### colour/step3
+### colour/step4
 
 Next branch :
 
-colour/step4
+colour/step5
 
 ---
 
-Draw two ellipses.
+Refactor into functions.
 
 #### Talk about
 
-Which circle is ontop of the other one.
+Why functions are good for you.
+What is a float?
+What is a type?
