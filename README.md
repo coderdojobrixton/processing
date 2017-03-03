@@ -5,11 +5,11 @@ Based on :
 
 http://www.cs.sfu.ca/CourseCentral/166/tjd/color.html
 
-### colour/step1 
+### colour/step2
 
 Next branch :
 
-colour/step 2
+colour/step3
 
 ---
 
