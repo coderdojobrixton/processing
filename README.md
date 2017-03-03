@@ -5,8 +5,17 @@ Based on :
 
 http://www.cs.sfu.ca/CourseCentral/166/tjd/color.html
 
-Second lesson with Processing.  Basic Colours with a bit of layout.
+### colour/step1 
 
-Steps are organised into branches.  To start check out :
+Next branch :
 
-colour/step1 
+colour/step2
+
+---
+
+1.  Draw a circle.
+
+#### Talk about
+
+Shape of the ellipse.
+Position of the ellipse.
