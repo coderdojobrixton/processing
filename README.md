@@ -1,8 +1,12 @@
-Processing Lessons
-------------------
+Colours and Layout Mode
+-----------------------
 
-Lessons are organised by branches.
+Based on :
 
-See :
+http://www.cs.sfu.ca/CourseCentral/166/tjd/color.html
 
-https://github.com/coderdojobrixton/processing
+Second lesson with Processing.  Basic Colours with a bit of layout.
+
+Steps are organised into branches.  To start check out :
+
+colour/step1 
