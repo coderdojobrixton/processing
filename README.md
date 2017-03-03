@@ -5,18 +5,17 @@ Based on :
 
 http://www.cs.sfu.ca/CourseCentral/166/tjd/color.html
 
-### colour/step4
+### colour/step5
 
 Next branch :
 
-colour/step5
+colour/step6
 
 ---
 
-Refactor into functions.
+Draw bounding box.
 
 #### Talk about
 
-Why functions are good for you.
-What is a float?
-What is a type?
+What type is boolean?
+Why can't we see the circles anymore?
