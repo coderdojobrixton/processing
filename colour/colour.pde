@@ -9,6 +9,7 @@ void setup() {
 
 void draw() {
   
+  circleFillColour = color(255,255,255 , float(mouseY) / height * 100.0 );
   
   drawCornerEllipse(0, 0, 200, 200);
   drawBoundingBox(0, 0, 200, 200 , false);
