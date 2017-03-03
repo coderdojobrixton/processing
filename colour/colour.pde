@@ -4,7 +4,7 @@
 
 void draw() {
   
-  ellipseMode(CORNER);
+  ellipseMode(CENTER);
   ellipse(0, 0, 200, 200);
 
 }

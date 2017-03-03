@@ -13,9 +13,8 @@ colour/step3
 
 ---
 
-1.  Draw a circle.
+Change the mode and the position changes
 
 #### Talk about
 
-Shape of the ellipse.
-Position of the ellipse.
+Modes and how they have affected position.
