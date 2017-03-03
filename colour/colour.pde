@@ -1,8 +1,11 @@
+color boxStrokeColour = color(255,0,0);
+color boxFillColour = color(255,0,0 , 0);
+color circleStrokeColour = color(0,0,0);
+color circleFillColour = color(255,255,255 , 100);
+
 void setup() {
   size(500, 500);
 }
-color boxStrokeColour = color(255,0,0);
-color boxFillColour = color(255,0,0 , 0);
 
 void draw() {
   
@@ -15,12 +18,18 @@ void draw() {
 
 void drawCornerEllipse( int ellipseLeft , int ellipseTop, int ellipseWidth , int ellipseHeight){
   
+  stroke(circleStrokeColour);
+  fill(circleFillColour);
+  
   ellipseMode(CORNER);
   ellipse(ellipseLeft, ellipseTop, ellipseWidth, ellipseHeight);
   
 }
 
 void drawCenterEllipse( int ellipseLeft , int ellipseTop, int ellipseWidth , int ellipseHeight){
+  
+  stroke(circleStrokeColour);
+  fill(circleFillColour);
   
   ellipseMode(CENTER);
   ellipse(ellipseLeft, ellipseTop, ellipseWidth, ellipseHeight);
