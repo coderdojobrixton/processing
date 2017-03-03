@@ -5,16 +5,16 @@ Based on :
 
 http://www.cs.sfu.ca/CourseCentral/166/tjd/color.html
 
-### colour/step2
+### colour/step3
 
 Next branch :
 
-colour/step3
+colour/step4
 
 ---
 
-Change the mode and the position changes
+Draw two ellipses.
 
 #### Talk about
 
-Modes and how they have affected position.
+Which circle is ontop of the other one.
