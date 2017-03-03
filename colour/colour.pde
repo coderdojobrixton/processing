@@ -1,6 +1,8 @@
 void setup() {
   size(500, 500);
 }
+color boxStrokeColour = color(255,0,0);
+color boxFillColour = color(255,0,0 , 0);
 
 void draw() {
   
@@ -37,7 +39,9 @@ void drawBoundingBox( int boxLeft , int boxTop, int boxWidth , int boxHeight , b
     
   }
   
-  fill(0);
+  stroke(boxStrokeColour);
+  fill(boxFillColour);
+  
   rect(boxLeft, boxTop, boxWidth, boxHeight);
   
 }

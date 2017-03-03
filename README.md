@@ -5,32 +5,23 @@ Based on :
 
 http://www.cs.sfu.ca/CourseCentral/166/tjd/color.html
 
-### colour/step6
+### colour/step7
 
 Next branch :
 
-colour/step7
+colour/step8
 
 ---
 
-Try to make the bounding box fill transparent (and fail)
+Set up some colours for the bounding box.
 
 #### Talk about
 
-What does fill(0) do?
+What are global variables?
 
-What does fill(0 , 0 , 0) do?
+Color as a type.
+Spelling of colour!
 
-What does fill(255,255,255) do?
-
-RGB.
-
-Using the colour picker to pick an RGB colour.
-
-What does fill(0 , 0 , 0 , 0) do?
-
-What does fill(255 , 255 , 255 , 0);
-
-Alpha is 0 - 100 and the colours are 255.
-
-The relationship between HEX and Decimal using the colour pick to illustrate.
+Why are our cirle strokes red?
+What's with the circle fills?  (One of mine is transparent)
+Can we give the circles strokes and fills and keep the bounding box red stroke and transparent fills?
