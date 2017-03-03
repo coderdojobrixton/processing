@@ -37,7 +37,7 @@ void drawBoundingBox( int boxLeft , int boxTop, int boxWidth , int boxHeight , b
     
   }
   
-  
+  fill(0);
   rect(boxLeft, boxTop, boxWidth, boxHeight);
   
 }
