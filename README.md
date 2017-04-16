@@ -40,5 +40,3 @@ Talk about :
 	CHORD
 - Switch statements.
 - Logging to the console.
-
-	
