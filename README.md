@@ -22,6 +22,7 @@ Draw a circle using Arc.
 
 Talk about :
 
+<<<<<<< HEAD
 - Global variables.  Scope is defined by where a variable a declared.
 - void setup()
 - You don't have give a variable a value straight away.
@@ -38,5 +39,7 @@ Talk about :
 
 	OPEN
 	CHORD
+=======
+>>>>>>> Step 3
 - Switch statements.
 - Logging to the console.
