@@ -8,7 +8,6 @@ Fourth lesson with Processing.  Rotation
 Slides :
 
 https://docs.google.com/presentation/d/1_WjG-evXEFjTYoWe2M-5H9suk6oU80noQ_Zkf_uvF1k/edit?usp=sharing
-pacman-rotation/step2
 
 Next branch :
 
@@ -28,7 +27,8 @@ Talk about :
 - You don't have give a variable a value straight away.
 - void draw()
 
-- Circle should be drawn in draw()
+- Default values are set in setup()
+- It's quite commmon to have default variables for things..
 
 - radians() function should be used inside arc() twice.  Once for start and once for end.
 
