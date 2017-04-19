@@ -15,7 +15,7 @@ void draw(){
   background(255);
       
   fill(#FFE51C);
-  
+
   arc( 100 , 100 , 100 , 100 , start , end , PIE);
   
 }
@@ -24,25 +24,30 @@ void keyPressed() {
   
   switch(keyCode){
     
-     case UP :
+    case UP :
      
-       println("up");
+         start = radians(-45);
+         end = radians(225);
        
      break;
      case DOWN :
      
-       println("down");
+         start = radians(135);
+         end = radians(405);
        
      break;
      case LEFT :
      
-       println("left");
+         start = radians(-135);
+         end = radians(135);
        
      break;
      case RIGHT :
      
-       println("right");
+        start = radians(45);
+        end = radians(315);
        
      break;
   }
+  
 }

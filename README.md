@@ -2,8 +2,7 @@ Rotation
 ------------------
 
 Fourth lesson with Processing.  Rotation
-### pacman-rotation/step2
-### pacman-rotation/step3
+### pacman-rotation/step4
 
 Slides :
 
@@ -11,35 +10,18 @@ https://docs.google.com/presentation/d/1_WjG-evXEFjTYoWe2M-5H9suk6oU80noQ_Zkf_uv
 
 Next branch :
 
-pacman-rotation/step3
-pacman-rotation/step4
+pacman-rotation/step5
+
 ---
-Show the slide from Processing 4 - Rotation with Pac Man that defines has arc() rotation() and the circle on it.
 
-At the time of writing slide 17.
+Let the learners work out that the change of state is to change the values of
+start and end.
 
-Draw a circle using Arc.
+Don't reveal that you can go beyond 360 for a bit.
 
 Talk about :
 
-<<<<<<< HEAD
-- Global variables.  Scope is defined by where a variable a declared.
-- void setup()
-- You don't have give a variable a value straight away.
-- void draw()
-
-- Default values are set in setup()
-- It's quite commmon to have default variables for things..
-
-- radians() function should be used inside arc() twice.  Once for start and once for end.
-
-- Default values are set in setup()
-- The line in one half of the circle is because of the drawing mode, PIE.  Try the others to remove it.
-- The line in one half of the circle is because of the drawing mode, PIE.  Try the others to remove it :
-
-	OPEN
-	CHORD
-=======
->>>>>>> Step 3
-- Switch statements.
-- Logging to the console.
+- Using logic to isolate situations.
+- State.
+- State changing Data (Model).
+- Graphical representation of state (View).
