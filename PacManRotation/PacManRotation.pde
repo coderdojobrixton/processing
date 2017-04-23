@@ -1,12 +1,18 @@
-float start;
-float end;
+float currentStart;
+float currentEnd;
+
+float targetStart;
+float targetEnd;
 
 void setup(){
   
   size(500, 500); 
   
-  start = radians(45);
-  end = radians(315);
+  currentStart = radians(45);
+  currentEnd = radians(315);
+  
+  targetStart = currentStart;
+  targetEnd = currentEnd;
   
 }
 
@@ -16,8 +22,22 @@ void draw(){
       
   fill(#FFE51C);
 
-  arc( 100 , 100 , 100 , 100 , start , end , PIE);
+  calculateNewCurrentValues();
+
+  arc( 100 , 100 , 100 , 100 , currentStart , currentEnd , PIE);
   
+}
+
+void calculateNewCurrentValues(){
+  
+  float diffStart  = targetStart - currentStart;
+  float diffEnd    = targetEnd - currentEnd;
+  
+  diffStart  = diffStart / 10;
+  diffEnd    = diffEnd / 10;
+  
+  currentStart  = currentStart + diffStart;
+  currentEnd    = currentEnd + diffEnd;
 }
 
 void keyPressed() {
@@ -26,26 +46,26 @@ void keyPressed() {
     
     case UP :
      
-         start = radians(-45);
-         end = radians(225);
+         targetStart = radians(-45);
+         targetEnd = radians(225);
        
      break;
      case DOWN :
      
-         start = radians(135);
-         end = radians(405);
+         targetStart = radians(135);
+         targetEnd = radians(405);
        
      break;
      case LEFT :
      
-         start = radians(-135);
-         end = radians(135);
+         targetStart = radians(-135);
+         targetEnd = radians(135);
        
      break;
      case RIGHT :
      
-        start = radians(45);
-        end = radians(315);
+        targetStart = radians(45);
+        targetEnd = radians(315);
        
      break;
   }

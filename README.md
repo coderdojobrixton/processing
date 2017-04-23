@@ -2,7 +2,7 @@ Rotation
 ------------------
 
 Fourth lesson with Processing.  Rotation
-### pacman-rotation/step4
+### pacman-rotation/step5
 
 Slides :
 
@@ -10,18 +10,19 @@ https://docs.google.com/presentation/d/1_WjG-evXEFjTYoWe2M-5H9suk6oU80noQ_Zkf_uv
 
 Next branch :
 
-pacman-rotation/step5
+
 
 ---
 
-Let the learners work out that the change of state is to change the values of
-start and end.
-
-Don't reveal that you can go beyond 360 for a bit.
+Lot's of talking until the slide with the two blue lines at the bottom.
+Then stop and challenge them to code the answer.
 
 Talk about :
 
-- Using logic to isolate situations.
-- State.
-- State changing Data (Model).
-- Graphical representation of state (View).
+---
+
+Using the built in loop which calls draw().
+Using a separate function to do the calculations.
+Functions should do one thing.
+
+The easing of the animation is due to the recalculation each time.
