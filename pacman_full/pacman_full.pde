@@ -179,7 +179,7 @@ class PacMan {
     }
 
     // if colides - stop, otherwise keep moving 
-    if (colides(x + dx, y + dy)) {
+    if (collides(x + dx, y + dy)) {
       stop();
     } else {
       x += dx;
@@ -223,7 +223,7 @@ class PacMan {
   // PacMan's FUTURE position (note nextX, nextY) with position of any of obstacles.
   // If FUTURE position will be in the collision return true otherwise false
   // (It's best to draw it on the paper to understand or show and tell).
-  boolean colides(float nextX, float nextY) {
+  boolean collides(float nextX, float nextY) {
     for (Obstacle o : obstacles) {
       if ((nextX + (size / 2) >= o.x) && (nextX - (size / 2) <= o.x + o.w)
         && (nextY + (size / 2) >= o.y) && (nextY - (size / 2) <= o.y + o.h) 
