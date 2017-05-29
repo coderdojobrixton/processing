@@ -48,7 +48,6 @@ void keyPressed() {
   if (key == 'r') { // refresh cherries
     initializeCherries();
   }
-
   if (keyCode == UP) {
     pacMan.up();
   }
@@ -66,14 +65,12 @@ void keyPressed() {
   }
 }
 
+// this is just a RECTANGLE
 class Obstacle {
   int x, y, w, h;
 
   public Obstacle(int _x, int _y, int _w, int _h) {
-    x = _x; 
-    y = _y; 
-    w = _w; 
-    h = _h;
+    x = _x; y = _y; w = _w; h = _h;
   }
 
   void draw() {
@@ -81,14 +78,13 @@ class Obstacle {
   }
 }
 
+// this is just a CIRCLE
 class Cherry {
   int x, y, size;
   boolean eaten = false;
 
   public Cherry(int _x, int _y, int _size) {
-    x = _x; 
-    y = _y; 
-    size = _size;
+    x = _x; y = _y; size = _size;
   }
 
   void draw() {
@@ -100,23 +96,9 @@ class Cherry {
   }
 }
 
-
 class PacMan {
   // position and size
   int x, y, size;
-  // is mouth opening (or closing)
-  boolean isOpening = true;
-  // movemment direction in degrees
-  float direction = 90;
-
-  // current mouth position in degrees
-  float mouthDegrees = 0;
-  // how much mouth can be open (so it simply goes from 0 to 45 degrees and back to 0 and again)
-  float mouthMaxDegrees = 45;
-
-  // how many steps in mouth opening animation
-  int mouthOpeningSteps = 15;
-  float mouthPositionStep = mouthMaxDegrees / mouthOpeningSteps;
 
   // movement vectors
   float dx, dy = 0;
@@ -135,50 +117,19 @@ class PacMan {
   }
 
   void draw() {
-    // A bit of translation magic to get mouth animation done only for one position.
-    // So pacman is drawn always in the (0,0) position and translated according to position on
-    // the screen. Also, depending on the direction of movement, rotation is applied.
-    pushMatrix();
-
-    translate(x, y);
-    rotate(radians(direction));
-
     // shape of pacman
     fill(#FFE75A);
     strokeWeight(3);
 
-    arc(0, 0, size, size, radians(mouthDegrees), radians(360 - mouthDegrees), PIE);
-
+    // body
+    arc(x, y, size, size, radians(30), radians(330), PIE);
     // eye
     fill(0);
-
-    // we don't want to have eye below the mouth when direction is to the left hence this
-    if (direction == 180) {
-      ellipse(0 + 5, 0 + 20, 5, 5);
-    } else {
-      ellipse(0 + 5, 0 - 20, 5, 5);
-    }
-
-    popMatrix();
+    ellipse(x + 5, y - 20, 5, 5);
   }
 
   void update() {
-    if (isOpening) {
-      mouthDegrees += mouthPositionStep;
-    } else {
-      mouthDegrees -= mouthPositionStep;
-    }
-
-    // swap from opening to closing
-    if (isOpening && mouthDegrees >= mouthMaxDegrees) {
-      isOpening = false;
-    }
-    // swap from closing to opening
-    if (!isOpening && mouthDegrees <= 0) {
-      isOpening = true;
-    }
-
-    // if colides - stop, otherwise keep moving 
+    // if colides in NEXT MOVE - stop, otherwise keep moving 
     if (colides(x + dx, y + dy)) {
       stop();
     } else {
@@ -191,25 +142,21 @@ class PacMan {
   }
 
   void up() {
-    direction = 270;
     dx = 0;
     dy = -moveStep;
   }
 
   void down() {
-    direction = 90;
     dx = 0;
     dy = moveStep;
   }
 
   void left() {
-    direction = 180;
     dx = -moveStep;
     dy = 0;
   }
 
   void right() {
-    direction = 0;
     dx = moveStep;
     dy = 0;
   }
@@ -218,7 +165,7 @@ class PacMan {
     dx = 0;
     dy = 0;
   }
- 
+
   // Colision detection for obstacles - these are rectangles so we're checking 
   // PacMan's FUTURE position (note nextX, nextY) with position of any of obstacles.
   // If FUTURE position will be in the collision return true otherwise false
