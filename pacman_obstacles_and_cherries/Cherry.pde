@@ -1,18 +1,27 @@
 // this is just a CIRCLE
 class Cherry {
  
-  int x, y, size;
-  boolean eaten = false;
+  int x;
+  int y;
+  int size;
+  boolean isEaten;
 
-  public Cherry(int _x, int _y, int _size) {
-    x = _x; y = _y; size = _size;
+  public Cherry(int passedX, int passedY, int passedSize) {
+    
+    x = passedX; 
+    y = passedY; 
+    size = passedSize;
+    
+    isEaten = false;
   }
 
   void draw() {
     // draw cherry if not eaten yet 
-    if (!eaten) {
+    if (!isEaten) {
+      
       fill(#F00505);
       ellipse(x, y, size, size);
+      
     }
   }
 }

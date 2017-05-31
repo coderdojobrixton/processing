@@ -88,7 +88,7 @@ class PacMan {
     for (Cherry c : cherries) {
       if ((x + (size / 2) >= (c.x - (c.size/ 2))) && (x - (size / 2) <= c.x + (c.size /2))
         && (y + (size / 2) >= (c.y  - (c.size / 2))) && (y - (size / 2) <= c.y + (c.size / 2))) {
-        c.eaten = true;
+        c.isEaten = true;
       }
     }
   }
