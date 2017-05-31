@@ -12,12 +12,14 @@ void setup() {
 
   initializeWalls();
   initializeCherries();
+  
   // add initialized cherries and obstacles lists into the pacman
   // so it knows what to eat and what to collide against
   pacMan = new PacMan(120, 150, 100, walls, cherries);
 }
 
 void initializeWalls() {
+  
   walls.add(new Wall(0, 0, width, 50));
   walls.add(new Wall(0, 0, 50, height));
   walls.add(new Wall(0, height - 50, width, height));
@@ -25,24 +27,29 @@ void initializeWalls() {
   walls.add(new Wall(200, 0, 50, 400));
   walls.add(new Wall(400, 350, 50, 200));
   walls.add(new Wall(600, 200, width, 50));
+  
 }
 
 void initializeCherries() {
+  
   cherries.add(new Cherry(120, 500, 50));
   cherries.add(new Cherry(400, 150, 50));
   cherries.add(new Cherry(600, 400, 50));
   cherries.add(new Cherry(700, 100, 50));
+  
 }
 
 void draw() {
   background(255);  // white background
 
-  pacMan.update();
+  pacMan.updateState();
   pacMan.draw();
 
-  for (Wall o : walls) {
-    o.draw();
+
+  for (Wall w : walls) {
+    w.draw();
   }
+  
   for (Cherry c : cherries) {
     c.draw();
   }

@@ -30,7 +30,8 @@ class PacMan {
     ellipse(x + 5, y - 20, 5, 5);
   }
 
-  void update() {
+  void updateState() {
+    
     // if colides in NEXT MOVE - stop, otherwise keep moving 
     if (collides(x + dx, y + dy)) {
       stop();
