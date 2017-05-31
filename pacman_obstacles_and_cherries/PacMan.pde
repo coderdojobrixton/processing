@@ -7,10 +7,10 @@ class PacMan {
   // how many pixels to move in either direction
   float moveStep = 5;
 
-  ArrayList<Obstacle> obstacles;
+  ArrayList<Wall> obstacles;
   ArrayList<Cherry> cherries;
 
-  public PacMan(int _x, int _y, int _size, ArrayList<Obstacle> _obstacles, ArrayList<Cherry> _cherries) {
+  public PacMan(int _x, int _y, int _size, ArrayList<Wall> _obstacles, ArrayList<Cherry> _cherries) {
     x = _x;
     y = _y;
     size = _size;
@@ -73,9 +73,9 @@ class PacMan {
   // If FUTURE position will be in the collision return true otherwise false
   // (It's best to draw it on the paper to understand or show and tell).
   boolean collides(float nextX, float nextY) {
-    for (Obstacle o : obstacles) {
-      if ((nextX + (size / 2) >= o.x) && (nextX - (size / 2) <= o.x + o.w)
-        && (nextY + (size / 2) >= o.y) && (nextY - (size / 2) <= o.y + o.h) 
+    for (Wall o : obstacles) {
+      if ((nextX + (size / 2) >= o.x) && (nextX - (size / 2) <= o.x + o.width)
+        && (nextY + (size / 2) >= o.y) && (nextY - (size / 2) <= o.y + o.height) 
         ) {
         return true;
       }

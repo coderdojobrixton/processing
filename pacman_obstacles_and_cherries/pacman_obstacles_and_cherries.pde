@@ -1,5 +1,5 @@
 // array lists of obstacles and cherries
-ArrayList<Obstacle> obstacles = new ArrayList<Obstacle>();
+ArrayList<Wall> walls = new ArrayList<Wall>();
 ArrayList<Cherry> cherries = new ArrayList<Cherry>();
 
 // A variable to store a reference to a PacMan object
@@ -10,21 +10,21 @@ void setup() {
   
   size(800, 600);
 
-  initializeObstacles();
+  initializeWalls();
   initializeCherries();
   // add initialized cherries and obstacles lists into the pacman
   // so it knows what to eat and what to collide against
-  pacMan = new PacMan(120, 150, 100, obstacles, cherries);
+  pacMan = new PacMan(120, 150, 100, walls, cherries);
 }
 
-void initializeObstacles() {
-  obstacles.add(new Obstacle(0, 0, width, 50));
-  obstacles.add(new Obstacle(0, 0, 50, height));
-  obstacles.add(new Obstacle(0, height - 50, width, height));
-  obstacles.add(new Obstacle(width - 50, 0, width, height));
-  obstacles.add(new Obstacle(200, 0, 50, 400));
-  obstacles.add(new Obstacle(400, 350, 50, 200));
-  obstacles.add(new Obstacle(600, 200, width, 50));
+void initializeWalls() {
+  walls.add(new Wall(0, 0, width, 50));
+  walls.add(new Wall(0, 0, 50, height));
+  walls.add(new Wall(0, height - 50, width, height));
+  walls.add(new Wall(width - 50, 0, width, height));
+  walls.add(new Wall(200, 0, 50, 400));
+  walls.add(new Wall(400, 350, 50, 200));
+  walls.add(new Wall(600, 200, width, 50));
 }
 
 void initializeCherries() {
@@ -40,7 +40,7 @@ void draw() {
   pacMan.update();
   pacMan.draw();
 
-  for (Obstacle o : obstacles) {
+  for (Wall o : obstacles) {
     o.draw();
   }
   for (Cherry c : cherries) {
