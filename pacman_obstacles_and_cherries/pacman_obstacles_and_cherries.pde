@@ -40,7 +40,7 @@ void draw() {
   pacMan.update();
   pacMan.draw();
 
-  for (Wall o : obstacles) {
+  for (Wall o : walls) {
     o.draw();
   }
   for (Cherry c : cherries) {
