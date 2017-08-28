@@ -1,6 +1,6 @@
 class Game {
   
-  public Game(PApplet application) {
+  public Game() {
     
 
     
