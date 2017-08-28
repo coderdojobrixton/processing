@@ -30,7 +30,7 @@ class Player {
   
   void tick() {
     
-      println("Player " + this.side + " tick");
+    
   }
   
   void draw() {

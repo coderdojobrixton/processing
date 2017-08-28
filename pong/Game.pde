@@ -11,9 +11,7 @@ class Game {
   }
   
   void tick() {
-    
-    println("Game tick");
-    
+
     player1.tick();
     player2.tick();
     
