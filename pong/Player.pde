@@ -12,6 +12,8 @@ class Player {
   int x;
   int y = height/2 - barLength/2 ;
   
+  boolean isMoving = false;
+
   public Player(Side side) {
     
     this.side = side;
@@ -47,14 +49,17 @@ class Player {
   }
  
   public void moveUp() {
-
+    
+    isMoving = true;
   }
 
   public void moveDown() {
 
+    isMoving = true;
   }
   
   public void stop() {
-
+    
+    isMoving = false;
   }
 }
