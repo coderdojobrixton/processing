@@ -8,6 +8,7 @@ class Player {
   
   void tick() {
     
+      println("Player tick");
     
   }
   
