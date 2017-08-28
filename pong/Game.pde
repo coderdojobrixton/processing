@@ -23,4 +23,36 @@ class Game {
     player2.draw();
     
   }
+  
+   void newBall() {
+    
+  }
+  
+  void toggleGameState() {
+    
+  }
+
+  void moveUpPlayer1() {
+    
+  }
+
+  void moveDownPlayer1() {
+    
+  }   
+
+  void moveUpPlayer2() {
+    
+  }   
+
+  void moveDownPlayer2() {
+    
+  }
+
+  void stopPlayer1() {
+    
+  }
+
+  void stopPlayer2() {
+    
+  }
 }

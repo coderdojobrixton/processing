@@ -20,6 +20,7 @@ void draw() {
 }
 
 void keyPressed() {
+  
   if (keyCode == UP) {
     println("moveUpPlayer2()");
   } else if (keyCode == DOWN) {
@@ -33,12 +34,15 @@ void keyPressed() {
   } else if (key == ' ') {
     println("toggleGameState()");
   }
+  
 }
 
 void keyReleased() {
+  
   if (keyCode == UP || keyCode == DOWN) {
     println("stopPlayer2()");
   } if (key == 'w' || key == 's') {
     println("stopPlayer1()");
   } 
+  
 }
