@@ -5,8 +5,8 @@ class Game {
     
   public Game() {
     
-    player1 = new Player();
-    player2 = new Player();
+    player1 = new Player("left");
+    player2 = new Player("right");
     
   }
   
