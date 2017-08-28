@@ -37,6 +37,17 @@ class Player {
   
   void tick() {
     
+    if (isMoving) {
+      
+      if (direction == MovementDirection.UP) {  
+        
+        y -= 5;
+        
+      } else {
+        
+        y += 5;
+      }
+    }
   }
   
   void draw() {
