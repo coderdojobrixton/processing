@@ -5,9 +5,10 @@ class Game {
     
   public Game() {
     
+
     player1 = new Player("left");
     player2 = new Player("right");
-    
+
   }
   
   void tick() {
@@ -16,11 +17,13 @@ class Game {
     
     player1.tick();
     player2.tick();
+    
   }
   
   void draw() {
-    
+
+    player1.draw();
+    player2.draw();
     
   }
- 
 }
