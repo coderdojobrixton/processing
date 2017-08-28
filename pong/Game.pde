@@ -4,10 +4,9 @@ class Game {
   Player player2;
     
   public Game() {
-    
-
-    player1 = new Player("left");
-    player2 = new Player("right");
+   
+    player1 = new Player(Side.LEFT);
+    player2 = new Player(Side.RIGHT);
 
   }
   

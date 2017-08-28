@@ -1,6 +1,10 @@
+enum Side {
+  LEFT, RIGHT
+}
+
 class Player {
   
-  String side;
+  Side side;
   
   int barLength = 140;
   int barWidth = 20;
@@ -8,11 +12,11 @@ class Player {
   int x;
   int y = height/2 - barLength/2 ;
   
-  public Player(String side) {
+  public Player(Side side) {
     
     this.side = side;
     
-    if (side == "left") {
+    if (side == Side.LEFT) {
      
       x = 30;
       
@@ -31,7 +35,7 @@ class Player {
   
   void draw() {
 
-    if (this.side == "left") {
+    if (this.side == Side.LEFT) {
 
       rect(x - barWidth, y, barWidth, barLength);
       
