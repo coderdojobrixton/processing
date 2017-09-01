@@ -22,17 +22,17 @@ void draw() {
 void keyPressed() {
   
   if (keyCode == UP) {
-    println("moveUpPlayer2()");
+    game.moveUpPlayer2();
   } else if (keyCode == DOWN) {
-    println("moveDownPlayer2()");
+    game.moveDownPlayer2();
   } else if (key == 'w') {
-    println("moveUpPlayer1()");
+    game.moveUpPlayer1();
   } else if (key == 's') {
-    println("moveDownPlayer1()");
+    game.moveDownPlayer1();
   } else if (key == 'r') {
-    println("newBall()");
+    game.newBall();
   } else if (key == ' ') {
-    println("toggleGameState()");
+    game.toggleGameState();
   }
   
 }
@@ -40,9 +40,9 @@ void keyPressed() {
 void keyReleased() {
   
   if (keyCode == UP || keyCode == DOWN) {
-    println("stopPlayer2()");
+    game.stopPlayer2();
   } if (key == 'w' || key == 's') {
-    println("stopPlayer1()");
+    game.stopPlayer1();
   } 
   
 }
