@@ -33,26 +33,26 @@ class Game {
   }
 
   void moveUpPlayer1() {
-    
+    player1.moveUp();
   }
 
   void moveDownPlayer1() {
-    
+    player1.moveDown();
   }   
 
   void moveUpPlayer2() {
-    
+    player2.moveUp();
   }   
 
   void moveDownPlayer2() {
-    
+    player2.moveDown();
   }
 
   void stopPlayer1() {
-    
+    player1.stop();
   }
 
   void stopPlayer2() {
-    
+    player2.stop();
   }
 }
