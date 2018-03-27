@@ -5,9 +5,9 @@ class DrumMachine
   // The x position of the drum machine interface.
   final int x = 10;
   // The y start position of the sample buttons.
-  final int samplesStartY = 80;
+  final int samplesStartY = 100;
   // The height of each sample button.
-  final int sampleButtonHeight = 45;
+  final int sampleButtonHeight = 50;
   
   // The tempo of the drum machine in beats per minute.
   int bpm;
@@ -44,7 +44,7 @@ class DrumMachine
     // the current number of sample buttons and using it to make sure the new
     // sample button appears below the existing ones.
     int numSamples = this.samples.size();
-    int yPos = this.samplesStartY + ((sampleButtonHeight + 5) * numSamples);
+    int yPos = this.samplesStartY + (sampleButtonHeight * numSamples);
     // Create and add the sample button.
     SampleButton sample = new SampleButton(this.x, yPos, 95, 45, name, sf);
     this.samples.add(sample);

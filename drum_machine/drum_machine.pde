@@ -21,9 +21,12 @@ void setup()
 
 void draw()
 {
+  // Reset the background each time to prevent overprinting.
   background(255);
   
+  // Display the drum machine.
   dm.display();
+  // Play the sequencer. This happens each frame.
   dm.playSequencer();
 }
 
