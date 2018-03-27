@@ -4,10 +4,12 @@ class DrumMachine
   // Some graphical constants for use in displaying the drum machine.
   // The x position of the drum machine interface.
   final int x = 10;
-  // The y start position of the sample buttons.
-  final int samplesStartY = 80;
-  // The height of each sample button.
-  final int sampleButtonHeight = 45;
+  // The y start position of the tracks.
+  final int tracksStartY = 100;
+  // The height of each track.
+  final int trackHeight = 50;
+  // The width of each sequencer button.
+  final int sequencerButtonWidth = 50;
   // The width of the tempo display.
   final int tempoWidth = 75;
   
@@ -17,8 +19,9 @@ class DrumMachine
   int numSteps;
   // The current step to play.
   int step;
-  // A list to hold the samples in the drum machine.
-  ArrayList<SampleButton> samples;
+  // A list to hold the tracks (samples and sequencers)
+  // in the drum machine.
+  ArrayList<Track> tracks;
   // Transport buttons.
   PlayButton playButton;
   StopButton stopButton;
@@ -34,8 +37,8 @@ class DrumMachine
     // Set the number of sequencer steps.
     this.numSteps = numSteps;
     
-    // Set up the list of samples.
-    this.samples = new ArrayList<SampleButton>();
+    // Set up the list of tracks.
+    this.tracks = new ArrayList<Track>();
     
     // Set up the sequencer step counter.
     this.step = 0;
@@ -49,16 +52,16 @@ class DrumMachine
   }
   
   // Adds a sample to the drum machine.
-  void addSample(String name, SoundFile sf)
-  {
-    // Work out the y position of the sample button to be added by getting
-    // the current number of sample buttons and using it to make sure the new
-    // sample button appears below the existing ones.
-    int numSamples = this.samples.size();
-    int yPos = this.samplesStartY + ((sampleButtonHeight + 5) * numSamples);
-    // Create and add the sample button.
-    SampleButton sample = new SampleButton(this.x, yPos, 95, 45, name, sf);
-    this.samples.add(sample);
+  void addTrack(String name, SoundFile sf, IntList sequence)
+  {    
+    // Work out the y position of the track to be added by getting
+    // the current number of tracks and using it to make sure the new
+    // track appears below the existing ones.
+    int numTracks = this.tracks.size();
+    int yPos = this.tracksStartY + (this.trackHeight * numTracks);
+    // Create and add the track.
+    Track track = new Track(this.x, yPos, this.sequencerButtonWidth, this.trackHeight, name, sf, this.numSteps, sequence);
+    this.tracks.add(track);
   }
    
   // Displays the drum machine's components. 
@@ -72,10 +75,10 @@ class DrumMachine
     this.playButton.display();
     this.stopButton.display();
     
-    // Display the samples.
-    for (SampleButton sb : this.samples)
+    // Display the sequencer tracks.
+    for (Track t : this.tracks)
     {
-      sb.display();
+      t.display();
     }
   }
   
@@ -87,17 +90,15 @@ class DrumMachine
       // Get the current sequencer step to play.
       int currentStep = this.step % this.numSteps;
       
-      // Play the kick on the first beat...
-      if (currentStep == 0)
+      // If current sequencer step is active for a track,
+      // play the track's sample.
+      for (Track t : this.tracks)
       {
-        this.samples.get(0).play();
+        if (t.sequencer[currentStep].isActive)
+        {
+          t.play();
+        }
       }
-      // ... and the snare on the third beat.
-      else if (currentStep == 2)
-      {
-        this.samples.get(1).play();
-      }
-      // These are hard-coded for now... we'll fix that later.
       
       // Increment the step ready for the next frame.
       step++;
@@ -158,10 +159,11 @@ class DrumMachine
     {
       this.stop();
     }
-    else {
-      for (SampleButton sb : this.samples)
+    else
+    {      
+      for (Track t : this.tracks)
       {
-        sb.handleClick();
+        t.handleClick();
       }
     }
   }
@@ -204,14 +206,14 @@ class DrumMachine
       case '7':
       case '8':
       case '9':
-        // KeyCode '1' is integer 49, so subtract 49 to get a sample number.
-        int sampleNumber = keyCode - 49;
-        // Check that there's a sample with this index.
-        if (this.samples.size() > sampleNumber)
+        // KeyCode '1' is integer 49, so subtract 49 to get a track number.
+        int trackNumber = keyCode - 49;
+        // Check that there's a track with this index.
+        if (this.tracks.size() > trackNumber)
         {
           // If so, play the sound.
-          SampleButton sb = this.samples.get(sampleNumber);
-          sb.play();
+          Track track = this.tracks.get(trackNumber);
+          track.play();  
         }
         break;      
     }
