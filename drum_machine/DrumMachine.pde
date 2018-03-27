@@ -8,6 +8,8 @@ class DrumMachine
   final int samplesStartY = 80;
   // The height of each sample button.
   final int sampleButtonHeight = 45;
+  // The width of the tempo display.
+  final int tempoWidth = 75;
   
   // The tempo of the drum machine in beats per minute.
   int bpm;
@@ -39,8 +41,8 @@ class DrumMachine
     this.step = 0;
     
     // Set up the transport controls.
-    this.playButton = new PlayButton(this.x + 75, 10);
-    this.stopButton = new StopButton(this.x + 75 + this.playButton.w + 10, 10);
+    this.playButton = new PlayButton(this.x + this.tempoWidth, 10);
+    this.stopButton = new StopButton(this.x + this.tempoWidth + this.playButton.w + 10, 10);
     
     // Reset the state of the drum machine.
     this.stop();
@@ -121,20 +123,14 @@ class DrumMachine
   void stop()
   {
     this.isPlaying = false;
+    // Reset the step counter so next time play is pressed, the drum
+    // machine is at the start of the sequence.
     this.step = 0;
     
     // Set the state of the transport buttons. Play should be ready;
     // the drum machine is stopped, so the stop button is disabled.
     this.stopButton.disable();
     this.playButton.enable();
-    
-    //for (Track t : this.tracks)
-    //{
-    //  // Stopping a sample that isn't playing throws an error.
-    //  // Doesn't affect execution, but it's something to be aware of.
-    //  // Update: sometimes causes a crash; best not to use this.
-    //  t.sampleButton.stop();
-    //}
     
     // If the sequencer isn't playing, set the frame rate to a value
     // whereby the UI feels responsive.
