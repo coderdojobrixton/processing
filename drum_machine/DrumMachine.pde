@@ -51,7 +51,7 @@ class DrumMachine
     // step that show which step is currently being played.
     this.stepIndicators = new StepIndicator[this.numSteps];
     // Calculate the spacing between each step indicator.
-    int indicatorSpacing = (width - 10 - this.sampleButtonWidth) / this.numSteps;
+    int indicatorSpacing = (width - 20 - this.sampleButtonWidth) / this.numSteps;
     for (int i = 0; i < this.numSteps; i++)
     {
       int xPos = x + this.sampleButtonWidth + (indicatorSpacing * i);

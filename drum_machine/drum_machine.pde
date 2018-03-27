@@ -12,6 +12,7 @@ void setup()
   dm = new DrumMachine(bpm, numSteps);
   
   SoundFile kick = new SoundFile(this, "808kick.aif");
+  kick.amp(.9);
   IntList sequence = new IntList(0, 7, 8, 10);
   dm.addTrack("Kick", kick, sequence);
   
@@ -27,7 +28,7 @@ void setup()
   
   SoundFile hiHat2 = new SoundFile(this, "808hihatmid.aif");
   hiHat2.amp(.3);
-  sequence = new IntList(0, 2, 4, 6, 8, 10, 12);
+  sequence = new IntList(2, 4, 6, 8, 10, 12);
   dm.addTrack("Hi-Hat 2", hiHat2, sequence);
   
   SoundFile openHat = new SoundFile(this, "808hihatopen.aif");
