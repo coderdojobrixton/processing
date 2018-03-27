@@ -60,7 +60,7 @@ class DrumMachine
     int numTracks = this.tracks.size();
     int yPos = this.tracksStartY + (this.trackHeight * numTracks);
     // Create and add the track.
-    Track track = new Track(this.x, yPos, this.sequencerButtonWidth, this.trackHeight, name, sf, this.numSteps, sequence);
+    Track track = new Track(this.x, yPos, width - (2 * x), this.trackHeight, name, sf, this.numSteps, sequence);
     this.tracks.add(track);
   }
    
