@@ -2,7 +2,7 @@
 class Track
 {
   // The width of the track's sample button.
-  final int sampleButtonWidth = 100;
+  final float sampleButtonWidth = 100;
   
   // The track has a sample button...
   SampleButton sampleButton;
@@ -11,14 +11,14 @@ class Track
   
   // Constructor: set up the track, with dimensions, a sample name,
   // a sound file to play, and a default sequencer setting.
-  Track(int x, int y, int w, int h, String name, SoundFile sf, int numSequencerSteps, IntList sequence)
+  Track(float x, float y, float w, float h, String name, SoundFile sf, int numSequencerSteps, IntList sequence)
   {
     // Set up the track's sample button.
     this.sampleButton = new SampleButton(x, y, this.sampleButtonWidth, h - 5, name, sf);
     // Set up the array to hold the track's sequencer buttons.
     this.sequencer = new SequencerButton[numSequencerSteps];
     
-    int sequencerButtonWidth = (w - this.sampleButtonWidth) / numSequencerSteps;
+    float sequencerButtonWidth = (w - this.sampleButtonWidth) / numSequencerSteps;
     
     // Add sequencer buttons to the track -- as many as specified by
     // the the number of sequencer steps specified in the main
@@ -31,7 +31,7 @@ class Track
       
       // Set the x position of the sequencer button so they all
       // appear side by side.
-      int xPos = x + sampleButton.w + 5 + (i * sequencerButtonWidth);
+      float xPos = x + sampleButton.w + 5 + (i * sequencerButtonWidth);
       
       // Set the current sequencer button
       sequencer[i] = new SequencerButton(xPos, y, sequencerButtonWidth, h, isActive);

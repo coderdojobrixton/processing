@@ -5,7 +5,7 @@ class StopButton extends Button
   color controlColor;
   
   // Constructor: set up the stop button.
-  StopButton(int x, int y)
+  StopButton(float x, float y)
   {
     super(x, y, 50, 50, color(200));
   }

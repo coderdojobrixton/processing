@@ -2,7 +2,7 @@
 class StepIndicator extends Button
 {  
   // Constructor: set up the step indicator.
-  StepIndicator(int x, int y, int w, int h, color c)
+  StepIndicator(float x, float y, float w, float h, color c)
   {
     // Call the button constructor.
     super(x, y, w, h, c);

@@ -2,7 +2,7 @@
 class SequencerButton extends Button
 {
   // Constructor: set up the sequencer button;
-  SequencerButton(int x, int y, int w, int h, boolean isActive)
+  SequencerButton(float x, float y, float w, float h, boolean isActive)
   {
     // Call the Button class constructor.
     super(x, y, w - 5, h - 5, color(50));

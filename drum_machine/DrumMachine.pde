@@ -3,16 +3,16 @@ class DrumMachine
 {
   // Some graphical constants for use in displaying the drum machine.
   // The x position of the drum machine interface.
-  final int x = 10;
+  final float x = 10;
   // The y start position of the tracks.
-  final int tracksStartY = 100;
+  final float tracksStartY = 100;
   // The height of each track.
-  final int trackHeight = 50;
+  final float trackHeight = 50;
   // The width of the tempo display.
-  final int tempoWidth = 75;
+  final float tempoWidth = 75;
   // The width of a sample button.
   // Used to set the position of the step indicators.
-  final int sampleButtonWidth = 100;
+  final float sampleButtonWidth = 100;
   
   // The tempo of the drum machine in beats per minute.
   int bpm;
@@ -51,10 +51,10 @@ class DrumMachine
     // step that show which step is currently being played.
     this.stepIndicators = new StepIndicator[this.numSteps];
     // Calculate the spacing between each step indicator.
-    int indicatorSpacing = (width - 20 - this.sampleButtonWidth) / this.numSteps;
+    float indicatorSpacing = (width - (2 * this.x) - this.sampleButtonWidth) / this.numSteps;
     for (int i = 0; i < this.numSteps; i++)
     {
-      int xPos = x + this.sampleButtonWidth + (indicatorSpacing * i);
+      float xPos = this.x + this.sampleButtonWidth + (indicatorSpacing * i);
       stepIndicators[i] = new StepIndicator(xPos, this.tracksStartY - 10, indicatorSpacing, this.trackHeight, color(50));
     }
     
@@ -76,7 +76,7 @@ class DrumMachine
     // the current number of tracks and using it to make sure the new
     // track appears below the existing ones.
     int numTracks = this.tracks.size();
-    int yPos = this.tracksStartY + (this.trackHeight * numTracks);
+    float yPos = this.tracksStartY + (this.trackHeight * numTracks);
     // Create and add the track.
     Track track = new Track(this.x, yPos, width - (2 * x), this.trackHeight, name, sf, this.numSteps, sequence);
     this.tracks.add(track);
