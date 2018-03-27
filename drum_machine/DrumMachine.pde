@@ -8,8 +8,6 @@ class DrumMachine
   final int tracksStartY = 100;
   // The height of each track.
   final int trackHeight = 50;
-  // The width of each sequencer button.
-  final int sequencerButtonWidth = 50;
   // The width of the tempo display.
   final int tempoWidth = 75;
   
