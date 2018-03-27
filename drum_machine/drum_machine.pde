@@ -23,15 +23,17 @@ void setup()
 
 void draw()
 {
-  // Reset the view each time so things like tempo are 
-  // displayed properly, rather than overprinting.
+  // Reset the background each time to prevent overprinting.
   background(25);
   
   // Draw a box to contain the drum machine interface.
   fill(150);
   rect(5, 5, width - 10, height - 10, 8);
   
+  // Display the drum machine.
   dm.display();
+  // Play the sequencer. This happens each frame, but if the drum machine's
+  // isPlaying field is set to false, no sound will be produced.
   dm.playSequencer();
 }
 
