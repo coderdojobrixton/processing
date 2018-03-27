@@ -12,13 +12,40 @@ void setup()
   dm = new DrumMachine(bpm, numSteps);
   
   SoundFile kick = new SoundFile(this, "808kick.aif");
-  IntList sequence = new IntList(0, 4, 8, 12);
+  IntList sequence = new IntList(0, 7, 8, 10);
   dm.addTrack("Kick", kick, sequence);
   
   SoundFile snare = new SoundFile(this, "808snare1.aif");
   snare.amp(.9);
-  sequence = new IntList(2, 6, 10, 14);
+  sequence = new IntList(4, 9, 12, 15);
   dm.addTrack("Snare", snare, sequence);
+  
+  SoundFile hiHat1 = new SoundFile(this, "808hihatclosed.aif");
+  hiHat1.amp(.3);
+  sequence = new IntList(1, 3, 5, 7, 9, 11, 13);
+  dm.addTrack("Hi-Hat 1", hiHat1, sequence);
+  
+  SoundFile hiHat2 = new SoundFile(this, "808hihatmid.aif");
+  hiHat2.amp(.3);
+  sequence = new IntList(0, 2, 4, 6, 8, 10, 12);
+  dm.addTrack("Hi-Hat 2", hiHat2, sequence);
+  
+  SoundFile openHat = new SoundFile(this, "808hihatopen.aif");
+  openHat.amp(.3);
+  sequence = new IntList();
+  sequence.append(14);
+  dm.addTrack("Open hat", openHat, sequence);
+  
+  SoundFile crash = new SoundFile(this, "808crash.aif");
+  crash.amp(.25);
+  sequence = new IntList();
+  sequence.append(0);
+  dm.addTrack("Crash", crash, sequence);
+  
+  SoundFile clave = new SoundFile(this, "808clave.aif");
+  clave.amp(.4);
+  sequence = new IntList(2, 3, 10, 11);
+  dm.addTrack("Clave", clave, sequence);
 }      
 
 void draw()

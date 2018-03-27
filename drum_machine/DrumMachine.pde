@@ -12,6 +12,9 @@ class DrumMachine
   final int sequencerButtonWidth = 50;
   // The width of the tempo display.
   final int tempoWidth = 75;
+  // The width of a sample button.
+  // Used to set the position of the step indicators.
+  final int sampleButtonWidth = 100;
   
   // The tempo of the drum machine in beats per minute.
   int bpm;
@@ -22,6 +25,12 @@ class DrumMachine
   // A list to hold the tracks (samples and sequencers)
   // in the drum machine.
   ArrayList<Track> tracks;
+  // An array to hold the indicators that show which step
+  // in the sequencer is currently being played.
+  // Use an array rather than an ArrayList because the number
+  // of steps is set when the drum machine is created -- the
+  // number of tracks can vary.
+  StepIndicator[] stepIndicators;
   // Transport buttons.
   PlayButton playButton;
   StopButton stopButton;
@@ -39,6 +48,15 @@ class DrumMachine
     
     // Set up the list of tracks.
     this.tracks = new ArrayList<Track>();
+    
+    // Set up the step indicators -- the lights above each sequencer
+    // step that show which step is currently being played.
+    this.stepIndicators = new StepIndicator[this.numSteps];
+    for (int i = 0; i < this.numSteps; i++)
+    {
+      int xPos = x + this.sampleButtonWidth + (this.sequencerButtonWidth * i);
+      stepIndicators[i] = new StepIndicator(xPos, this.tracksStartY - 10, this.sequencerButtonWidth, this.trackHeight, color(50));
+    }
     
     // Set up the sequencer step counter.
     this.step = 0;
@@ -71,6 +89,12 @@ class DrumMachine
     fill(0);
     text(this.bpm + " bpm", x + 10, 40);
     
+    // Display the sequencer step indicators.
+    for (StepIndicator i : this.stepIndicators)
+    {
+      i.display();
+    }
+    
     // Display the trasport buttons.
     this.playButton.display();
     this.stopButton.display();
@@ -89,6 +113,18 @@ class DrumMachine
     {
       // Get the current sequencer step to play.
       int currentStep = this.step % this.numSteps;
+      
+      // Highlight the current step with the appropriate
+      // step indicator.
+      int indicatorStep = currentStep + 1;
+      
+      if (currentStep == this.numSteps - 1)
+      {
+        indicatorStep = 0;
+      }
+      
+      this.stepIndicators[currentStep].isActive = false;
+      this.stepIndicators[indicatorStep].isActive = true;
       
       // If current sequencer step is active for a track,
       // play the track's sample.
@@ -117,6 +153,10 @@ class DrumMachine
     this.playButton.disable();
     this.stopButton.enable();
     
+    // Activate the first sequencer step indicator in advance,
+    // otherwise it won't be lit when play is pressed.
+    this.stepIndicators[0].isActive = true;
+    
     this.setTempo();
   }
   
@@ -132,6 +172,12 @@ class DrumMachine
     // the drum machine is stopped, so the stop button is disabled.
     this.stopButton.disable();
     this.playButton.enable();
+    
+    // Reset the sequencer step indicators.
+    for (StepIndicator i : this.stepIndicators)
+    {
+      i.isActive = false;
+    }
     
     // If the sequencer isn't playing, set the frame rate to a value
     // whereby the UI feels responsive.
