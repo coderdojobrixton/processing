@@ -1,6 +1,9 @@
 // The track clas.
 class Track
 {
+  // The width of the track's sample button.
+  final int sampleButtonWidth = 100;
+  
   // The track has a sample button...
   SampleButton sampleButton;
   // ... and an array of sequencer buttons.
@@ -8,12 +11,14 @@ class Track
   
   // Constructor: set up the track, with dimensions, a sample name,
   // a sound file to play, and a default sequencer setting.
-  Track(int x, int y, int sequencerButtonWidth, int h, String name, SoundFile sf, int numSequencerSteps, IntList sequence)
+  Track(int x, int y, int w, int h, String name, SoundFile sf, int numSequencerSteps, IntList sequence)
   {
     // Set up the track's sample button.
-    this.sampleButton = new SampleButton(x, y, 95, h - 5, name, sf);
+    this.sampleButton = new SampleButton(x, y, this.sampleButtonWidth, h - 5, name, sf);
     // Set up the array to hold the track's sequencer buttons.
     this.sequencer = new SequencerButton[numSequencerSteps];
+    
+    int sequencerButtonWidth = (w - this.sampleButtonWidth) / numSequencerSteps;
     
     // Add sequencer buttons to the track -- as many as specified by
     // the the number of sequencer steps specified in the main
@@ -66,7 +71,6 @@ class Track
     // the sample button to active so it'll flash.
     if (this.sampleButton.mouseOver)
     {
-      this.sampleButton.isActive = true;
       this.play();
     }
     // Otherwise check whether the mouse pointer is hovering over
