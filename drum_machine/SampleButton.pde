@@ -8,10 +8,10 @@ class SampleButton extends Button
   SoundFile file;
   
   // Constructor: set up the sample button.
-  SampleButton(int x, int y, int trackHeight, String label, SoundFile file)
+  SampleButton(int x, int y, int w, int h, String label, SoundFile file)
   {
     // Call the button constructor. 
-    super(x, y, 90, trackHeight - 5, color(100));
+    super(x, y, w, h, color(100));
     // Set the label...
     this.label = label;
     // ... and the sound file.
@@ -50,16 +50,16 @@ class SampleButton extends Button
     // Draw the label.
     fill(240);
     text(this.label, this.x + 5, this.y + 15);
+    
+    // Reset the active status of the sample button so it won't
+    // still be highlighted on the next frame.
+    this.isActive = false;
   }
   
   // Plays the sound associated with this sample button.
   void play()
   {
-    this.file.play(); 
-  }
-  
-  void stop()
-  {
-    this.file.stop();
+    this.isActive = true;
+    this.file.play();
   }
 }

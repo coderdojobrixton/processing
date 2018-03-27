@@ -29,14 +29,18 @@ abstract class Button
     this.w = w;
     this.h = h;
     this.c = c;
+    // Make sure that when it's first created, a button's active
+    // and mouseover status are set to their default state (false).
     this.isActive = false;
     this.mouseOver = false;
   }
   
   // Displays the button.
   // This shoulde be called every frame. As this is a base class,
-  // this method just checks whether the mouse pointer is hovering
-  // over the button.
+  // this method doesn't do any displaying, it just checks 
+  // whether the mouse pointer is hovering over the button.
+  // Buttons that extend this base class will do their own
+  // display stuff.
   void display()
   {
     this.isMouseOver();
