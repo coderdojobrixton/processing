@@ -17,6 +17,11 @@ class DrumMachine
   int step;
   // A list to hold the samples in the drum machine.
   ArrayList<SampleButton> samples;
+  // Transport buttons.
+  PlayButton playButton;
+  StopButton stopButton;
+  // A flag to determine whether the drum machine is playing.
+  boolean isPlaying;
   
   // Constructor: set up the drum machine.
   DrumMachine(int bpm, int numSteps)
@@ -33,8 +38,12 @@ class DrumMachine
     // Set up the sequencer step counter.
     this.step = 0;
     
-    // Set the tempo of the drum machine.
-    this.setTempo();
+    // Set up the transport controls.
+    this.playButton = new PlayButton(this.x + 75, 10);
+    this.stopButton = new StopButton(this.x + 75 + this.playButton.w + 10, 10);
+    
+    // Reset the state of the drum machine.
+    this.stop();
   }
   
   // Adds a sample to the drum machine.
@@ -57,6 +66,10 @@ class DrumMachine
     fill(0);
     text(this.bpm + " bpm", x + 10, 40);
     
+    // Display the trasport buttons.
+    this.playButton.display();
+    this.stopButton.display();
+    
     // Display the samples.
     for (SampleButton sb : this.samples)
     {
@@ -67,23 +80,65 @@ class DrumMachine
   // Plays the sequencer. Should be called each frame.
   void playSequencer()
   {
-    // Get the current sequencer step to play.
-    int currentStep = this.step % this.numSteps;
-    
-    // Play the kick on the first beat...
-    if (currentStep == 0)
+    if (this.isPlaying)
     {
-      this.samples.get(0).play();
+      // Get the current sequencer step to play.
+      int currentStep = this.step % this.numSteps;
+      
+      // Play the kick on the first beat...
+      if (currentStep == 0)
+      {
+        this.samples.get(0).play();
+      }
+      // ... and the snare on the third beat.
+      else if (currentStep == 2)
+      {
+        this.samples.get(1).play();
+      }
+      // These are hard-coded for now... we'll fix that later.
+      
+      // Increment the step ready for the next frame.
+      step++;
     }
-    // ... and the snare on the third beat.
-    else if (currentStep == 2)
-    {
-      this.samples.get(1).play();
-    }
-    // These are hard-coded for now... we'll fix that later.
+  }
+  
+  // Starts the sequencer.
+  void start()
+  {
+    this.isPlaying = true;
     
-    // Increment the step ready for the next frame.
-    step++;
+    // Set the state of the transport buttons.
+    // The drum machine is playing, so the play button should be
+    // disabled. The user can stop the drum machine though, so the
+    // stop button should be enabled.
+    this.playButton.disable();
+    this.stopButton.enable();
+    
+    this.setTempo();
+  }
+  
+  // Stops the sequencer
+  void stop()
+  {
+    this.isPlaying = false;
+    this.step = 0;
+    
+    // Set the state of the transport buttons. Play should be ready;
+    // the drum machine is stopped, so the stop button is disabled.
+    this.stopButton.disable();
+    this.playButton.enable();
+    
+    //for (Track t : this.tracks)
+    //{
+    //  // Stopping a sample that isn't playing throws an error.
+    //  // Doesn't affect execution, but it's something to be aware of.
+    //  // Update: sometimes causes a crash; best not to use this.
+    //  t.sampleButton.stop();
+    //}
+    
+    // If the sequencer isn't playing, set the frame rate to a value
+    // whereby the UI feels responsive.
+    frameRate(20);
   }
   
   // Sets the tempo of the drum machine by altering Processing's frame rate.
@@ -98,10 +153,20 @@ class DrumMachine
   
   // Handle user interaction via the mouse.
   void handleClick()
-  {   
-    for (SampleButton sb : this.samples)
+  {
+    if (this.playButton.mouseOver)
     {
-      sb.handleClick();
+      this.start();
+    }
+    else if (this.stopButton.mouseOver)
+    {
+      this.stop();
+    }
+    else {
+      for (SampleButton sb : this.samples)
+      {
+        sb.handleClick();
+      }
     }
   }
   
@@ -119,6 +184,18 @@ class DrumMachine
       case DOWN:
         this.bpm--;
         this.setTempo();
+        break;
+        
+      // Space starts/stops the sequencer.
+      case ' ':
+        if (!this.isPlaying)
+        {
+          this.start();
+        }
+        else
+        {
+          this.stop();
+        }
         break;
       
       // Numeric keys trigger samples.
