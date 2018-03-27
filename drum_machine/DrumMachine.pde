@@ -3,11 +3,11 @@ class DrumMachine
 {
   // Some graphical constants for use in displaying the drum machine.
   // The x position of the drum machine interface.
-  final int x = 10;
+  final float x = 10;
   // The y start position of the sample buttons.
-  final int samplesStartY = 100;
+  final float samplesStartY = 100;
   // The height of each sample button.
-  final int sampleButtonHeight = 50;
+  final float sampleButtonHeight = 50;
   
   // The tempo of the drum machine in beats per minute.
   int bpm;
@@ -44,7 +44,7 @@ class DrumMachine
     // the current number of sample buttons and using it to make sure the new
     // sample button appears below the existing ones.
     int numSamples = this.samples.size();
-    int yPos = this.samplesStartY + (this.sampleButtonHeight * numSamples);
+    float yPos = this.samplesStartY + (this.sampleButtonHeight * numSamples);
     // Create and add the sample button.
     SampleButton sample = new SampleButton(this.x, yPos, 95, 45, name, sf);
     this.samples.add(sample);
