@@ -3,13 +3,13 @@ class DrumMachine
 {
   // Some graphical constants for use in displaying the drum machine.
   // The x position of the drum machine interface.
-  final int x = 10;
+  final float x = 10;
   // The y start position of the tracks.
-  final int tracksStartY = 100;
+  final float tracksStartY = 100;
   // The height of each track.
-  final int trackHeight = 50;
+  final float trackHeight = 50;
   // The width of the tempo display.
-  final int tempoWidth = 75;
+  final float tempoWidth = 75;
   
   // The tempo of the drum machine in beats per minute.
   int bpm;
@@ -56,7 +56,7 @@ class DrumMachine
     // the current number of tracks and using it to make sure the new
     // track appears below the existing ones.
     int numTracks = this.tracks.size();
-    int yPos = this.tracksStartY + (this.trackHeight * numTracks);
+    float yPos = this.tracksStartY + (this.trackHeight * numTracks);
     // Create and add the track.
     Track track = new Track(this.x, yPos, width - (2 * x), this.trackHeight, name, sf, this.numSteps, sequence);
     this.tracks.add(track);

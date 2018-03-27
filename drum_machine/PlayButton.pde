@@ -5,7 +5,7 @@ class PlayButton extends Button
   color controlColor;
   
   // Constructor: set up the play button.
-  PlayButton(int x, int y)
+  PlayButton(float x, float y)
   {
     // Call the superclass (Button) constructor
     super(x, y, 50, 50, color(200));
