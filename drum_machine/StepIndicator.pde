@@ -25,6 +25,6 @@ class StepIndicator extends Button
     
     // Draw the step indicator.
     fill(this.c);
-    ellipse(this.x + (this.w / 2) - (this.w / 16), this.y, this.w / 4, this.h / 4);
+    ellipse(this.x + (this.w / 2) + (this.w / 16), this.y, this.w / 4, this.h / 4);
   }
 }

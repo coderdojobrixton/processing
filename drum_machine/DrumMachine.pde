@@ -50,10 +50,12 @@ class DrumMachine
     // Set up the step indicators -- the lights above each sequencer
     // step that show which step is currently being played.
     this.stepIndicators = new StepIndicator[this.numSteps];
+    // Calculate the spacing between each step indicator.
+    int indicatorSpacing = (width - 10 - this.sampleButtonWidth) / this.numSteps;
     for (int i = 0; i < this.numSteps; i++)
     {
-      int xPos = x + this.sampleButtonWidth + (this.sequencerButtonWidth * i);
-      stepIndicators[i] = new StepIndicator(xPos, this.tracksStartY - 10, this.sequencerButtonWidth, this.trackHeight, color(50));
+      int xPos = x + this.sampleButtonWidth + (indicatorSpacing * i);
+      stepIndicators[i] = new StepIndicator(xPos, this.tracksStartY - 10, indicatorSpacing, this.trackHeight, color(50));
     }
     
     // Set up the sequencer step counter.
