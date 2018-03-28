@@ -9,7 +9,7 @@ class DrumMachine
   // The height of each sample button.
   final float sampleButtonHeight = 50;
   // The width of the tempo display.
-  final int tempoWidth = 75;
+  final float tempoWidth = 75;
   
   // The tempo of the drum machine in beats per minute.
   int bpm;
