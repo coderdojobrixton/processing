@@ -150,14 +150,17 @@ class DrumMachine
   // Handle user interaction via the mouse.
   void handleClick()
   {
+    // Check whether the user has clicked the play button...
     if (this.playButton.mouseOver)
     {
       this.start();
     }
+    // ... or the stop button...
     else if (this.stopButton.mouseOver)
     {
       this.stop();
     }
+    // ... or the sample buttons.
     else {
       for (SampleButton sb : this.samples)
       {
