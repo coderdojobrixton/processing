@@ -46,12 +46,12 @@ void draw() {
   pacMan.draw();
 
 
-  for (Wall w : walls) {
-    w.draw();
+  for (Wall wall : walls) {
+    wall.draw();
   }
   
-  for (Cherry c : cherries) {
-    c.draw();
+  for (Cherry cherry : cherries) {
+    cherry.draw();
   }
 }
 
