@@ -8,7 +8,7 @@ class SampleButton extends Button
   SoundFile file;
   
   // Constructor: set up the sample button.
-  SampleButton(int x, int y, int w, int h, String label, SoundFile file)
+  SampleButton(float x, float y, float w, float h, String label, SoundFile file)
   {
     // Call the button constructor. 
     super(x, y, w, h, color(100));

@@ -5,11 +5,11 @@
 abstract class Button
 {
   // Some fields to describe the appearance of the button.
-  final int cornerRadius = 8;
-  int x;
-  int y;
-  int w;
-  int h;
+  final float cornerRadius = 8.0;
+  float x;
+  float y;
+  float w;
+  float h;
   color c;
   
   // A flag to determine whether the mouse pointer is
@@ -22,7 +22,7 @@ abstract class Button
   boolean isActive;
   
   // Constructor: set up the button.
-  Button(int x, int y, int w, int h, color c)
+  Button(float x, float y, float w, float h, color c)
   {
     this.x = x;
     this.y = y;
