@@ -21,9 +21,13 @@ void setup()
 
 void draw()
 {
+  // Reset the background each time to prevent overprinting.
   background(255);
   
+  // Display the drum machine.
   dm.display();
+  // Play the sequencer. This happens each frame, but if the drum machine's
+  // isPlaying field is set to false, no sound will be produced.
   dm.playSequencer();
 }
 
