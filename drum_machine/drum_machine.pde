@@ -9,6 +9,8 @@ void setup()
 void draw()
 {
   background(255);
+  fill(0);
+  text("At the moment this sketch doesn't do very much… but we'll soon change that.", 10, 20);
 }
 
 // Handle user interaction via the mouse.
